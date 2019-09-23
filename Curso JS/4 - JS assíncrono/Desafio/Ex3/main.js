@@ -4,12 +4,17 @@ var inputUser = document.getElementById('user');
 var ul = document.createElement('ul');
 
 buttonVisualizar.onclick = function() {
-
     document.getElementById('app').appendChild(ul);
     var user = inputUser.value;
+    var li = document.createElement('li');
+    ul.appendChild(li);
+    li.innerHTML += "Carregando...";
 
     axios.get('https://api.github.com/users/' + user + '/repos')
         .then(function(response) {
+            while (ul.hasChildNodes()) {
+                ul.removeChild(ul.lastChild);
+            }
             listaRepositorios = response.data;
             listaRepositorios.forEach(function(itemLista) {
                 var li = document.createElement('li');
@@ -24,7 +29,8 @@ buttonVisualizar.onclick = function() {
 
 //Não limpa totalmente apenas remove a lista da tela
 buttonLimpar.onclick = function() {
-    document.getElementById('app').removeChild(ul);
+    while (ul.hasChildNodes()) {
+        ul.removeChild(ul.lastChild);
+    }
     inputUser.value = '';
-
 }
