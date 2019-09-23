@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript</title>
+</head>
+
+<body>
+
+    <button id=buto>Exibe Lista</button>
+
+    <div id="minhaLista"></div>
+
+    <script>
+        var botao = document.getElementById('buto');
+        var nomes = ["Eduardo", "Gabriel", "Thomas"];
+        var ul = document.createElement('ul');
+        document.getElementById('minhaLista').appendChild(ul);
+
+        function exibeNomes() {
+            nomes.forEach(function(name) {
+                var li = document.createElement('li');
+                ul.appendChild(li);
+                li.innerHTML += name;
+            });
+        }
+        botao.onclick = exibeNomes;
+    </script>
+</body>
+
+</html>

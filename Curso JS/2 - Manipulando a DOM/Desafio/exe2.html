@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button class="botao">Adicionar Quadrado</button>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        var boxElement = document.querySelector('.box');
+        var btnQuadrado = document.querySelector('.botao');
+        var K = 0;
+
+        btnQuadrado.onclick = gerarQuadrado;
+        btnQuadrado.style.marginBottom = 10;
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+
+            return color;
+        }
+
+        function getid(obj) {
+            var sqrId = (obj.id);
+            var sqrMuda = document.getElementById(sqrId);
+            var newColor = getRandomColor();
+            sqrMuda.style.backgroundColor = newColor;
+        }
+
+        function gerarQuadrado() {
+            var sqrGerado = document.createElement("div");
+            k = K++;
+            var nomeSqr = 'sqr' + K;
+            sqrGerado.setAttribute("name", 'srq');
+            sqrGerado.setAttribute("id", nomeSqr);
+            sqrGerado.style.width = 100;
+            sqrGerado.style.height = 100;
+            sqrGerado.style.backgroundColor = '#000';
+            sqrGerado.style.marginBottom = 10;
+            sqrGerado.setAttribute("onmouseover", 'getid(this)');
+            boxElement.append(sqrGerado);
+        }
+
+        function changeRandomColor() {
+            var newColor = getRandomColor();
+            var quadradoTop = document.getElementById('sqr1');
+            quadradoTop = quadradoTop.style.backgroundColor = newColor;
+            console.log(quadradoTop);
+        }
+    </script>
+</body>
+
+</html

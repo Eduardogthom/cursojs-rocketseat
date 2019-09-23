@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curso JavaScript</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button class="botao">Adicionar Quadrado</button>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        var boxElement = document.querySelector('.box');
+        var btnQuadrado = document.querySelector('.botao');
+
+        function gerarQuadrado() {
+            var sqrGerado = document.createElement("div");
+            sqrGerado.style.width = 100;
+            sqrGerado.style.height = 100;
+            sqrGerado.style.backgroundColor = '#f00';
+            sqrGerado.style.marginBottom = 10;
+            boxElement.append(sqrGerado);
+        }
+
+        btnQuadrado.onclick = gerarQuadrado;
+    </script>
+</body>
+
+</html>
