@@ -22,12 +22,12 @@ buttonVisualizar.onclick = function() {
                 li.innerHTML += itemLista.name;
             })
         })
+        //Não esta tratando os tipos de erro, só da essa resposta para todos os codigos de erro
         .catch(function(error) {
-            alert('Erro: Repositorio Inexistente!');
+            alert('Erro!');
         });
 }
 
-//Não limpa totalmente apenas remove a lista da tela
 buttonLimpar.onclick = function() {
     while (ul.hasChildNodes()) {
         ul.removeChild(ul.lastChild);
